@@ -96,6 +96,9 @@
 // check if there is any newer version mandatory
 - (BOOL)hasNewerMandatoryVersion;
 
+// Initiate the app download
+- (BOOL)initiateAppDownload;
+
 @end
 
 #endif /* HOCKEYSDK_FEATURE_UPDATES */

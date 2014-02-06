@@ -47,6 +47,7 @@
 
 @class BITHockeyManager;
 @class BITHockeyBaseManager;
+@class BITAppVersionMetaInfo;
 
 /**
  The `BITHockeyManagerDelegate` formal protocol defines methods further configuring
@@ -208,5 +209,24 @@
  are not anonymous any more and the crash alerts will not show the word "anonymous"!
  */
 - (NSString *)userEmailForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager;
+
+/**
+ *	Determines if delegate has its own installation UI
+ *
+ *	@param hockeyManager The `BITHockeyManager` HockeyManager instance invoking this delegate
+ *
+ *  @retuurn YES if has custom update UI, otherwise NO.
+ */
+- (BOOL)hockeyManagerHasCustomUpdateUI:(BITHockeyManager *)hockeyManager;
+
+/**
+ *	Allows you to display your own app update UI.
+ *
+ *	@param hockeyManager The `BITHockeyManager` HockeyManager instance invoking this delegate
+ *	@param appName The name of the app.
+ *  @param version The new version
+ *  @param releaseNotes The release notes about the new version
+ */
+- (void)hockeyManager:(BITHockeyManager *)hockeyManager showInstallViewForUpdate:(BITAppVersionMetaInfo *)appInfo;
 
 @end

@@ -245,5 +245,11 @@ typedef NS_ENUM (NSUInteger, BITUpdateSetting) {
  */
 - (BITUpdateViewController *)hockeyViewController:(BOOL)modal;
 
+/**
+ *	Initiates the app download
+ *
+ *	@return YES if started, NO if not.
+ */
+- (BOOL)initiateAppDownload;
 
 @end

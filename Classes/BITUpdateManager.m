@@ -509,6 +509,16 @@ typedef NS_ENUM(NSInteger, BITUpdateAlertViewTag) {
   if ([self isUpdateManagerDisabled]) return;
   
   if (!_updateAlertShowing) {
+    
+    if (([BITHockeyManager sharedHockeyManager].delegate) && ([[BITHockeyManager sharedHockeyManager].delegate respondsToSelector:@selector(hockeyManagerHasCustomUpdateUI:)]))
+    {
+      if ([[BITHockeyManager sharedHockeyManager].delegate hockeyManagerHasCustomUpdateUI:[BITHockeyManager sharedHockeyManager]])
+      {
+        [[BITHockeyManager sharedHockeyManager].delegate hockeyManager:[BITHockeyManager sharedHockeyManager] showInstallViewForUpdate:self.newestAppVersion];
+        return;
+      }
+    }
+    
     if ([self hasNewerMandatoryVersion]) {
       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:BITHockeyLocalizedString(@"UpdateAvailable")
                                                            message:[NSString stringWithFormat:BITHockeyLocalizedString(@"UpdateAlertMandatoryTextWithAppVersion"), [self.newestAppVersion nameAndVersionString]]
