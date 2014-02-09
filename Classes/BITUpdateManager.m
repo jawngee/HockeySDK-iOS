@@ -748,6 +748,11 @@ typedef NS_ENUM(NSInteger, BITUpdateAlertViewTag) {
   return NO;
 #endif
   
+  return [self startAppDownload];
+}
+
+- (BOOL)startAppDownload
+{
   NSString *extraParameter = [NSString string];
   if (_sendUsageData && self.installationIdentification && self.installationIdentificationType) {
     extraParameter = [NSString stringWithFormat:@"&%@=%@",

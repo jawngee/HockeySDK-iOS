@@ -252,4 +252,11 @@ typedef NS_ENUM (NSUInteger, BITUpdateSetting) {
  */
 - (BOOL)initiateAppDownload;
 
+/**
+ *	Starts the app download
+ *
+ *	@return YES if started, NO if not.
+ */
+- (BOOL)startAppDownload;
+
 @end

@@ -99,6 +99,9 @@
 // Initiate the app download
 - (BOOL)initiateAppDownload;
 
+// Start the app download
+- (BOOL)startAppDownload;
+
 @end
 
 #endif /* HOCKEYSDK_FEATURE_UPDATES */
